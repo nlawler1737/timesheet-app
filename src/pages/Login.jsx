@@ -50,7 +50,7 @@ export default function Login() {
         return;
       }
       setLoginStatus({ success: true, message: "Redirecting..." });
-      // navigate("/")
+      navigate("/")
     });
   }
 

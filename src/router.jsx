@@ -12,7 +12,7 @@ export default createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <div>Error Occurrec</div>,
+    errorElement: <div>Error Occurred</div>,
     children: [
       {
         errorElement: <div>test</div>,
@@ -38,11 +38,11 @@ export default createBrowserRouter([
             element: <SignUp />,
           },
           {
-            path: "/resetpassword",
+            path: "/reset-password",
             element: <ResetPassword />,
           },
           {
-            path: "/confirmresetpassword",
+            path: "/confirm-reset-password",
             element: <ConfirmResetPassword />,
           },
         ],
