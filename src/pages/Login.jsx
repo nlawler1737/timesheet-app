@@ -1,10 +1,10 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardBody, Input, Link } from "@nextui-org/react";
 import InputForm from "../components/InputForm";
-import { useState } from "react";
 import PasswordEye from "../components/PasswordEye";
-import { login } from "../utils/authHandler";
-import { useNavigate } from "react-router-dom";
 import LoadingButton from "../components/LoadingButton";
+import { login } from "../utils/authHandler";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -43,14 +43,14 @@ export default function Login() {
     if (error) return;
 
     setLoading(true);
-    login({ username: email, password }).then((data) => {
+    login({ email, password }).then((data) => {
       setLoading(false);
       if (!data.success) {
         setLoginStatus({ success: false, message: data.message });
         return;
       }
       setLoginStatus({ success: true, message: "Redirecting..." });
-      navigate("/")
+      navigate("/");
     });
   }
 
@@ -97,7 +97,7 @@ export default function Login() {
           />
         }
       ></Input>
-      <Link href="/resetpassword">Forgot Password?</Link>
+      <Link href="/reset-password">Forgot Password?</Link>
       <LoadingButton
         loading={loading}
         text="Login"
