@@ -1,10 +1,23 @@
-export function login({ username, password }) {
+export function login({ email, password }) {
   return fakeFetch(
     [{ message: "user logged in" }],
     [
       { message: "Email or password are incorrect" },
       { message: "No account with this email was found" },
     ]
+  )
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      return { success: false, message: error };
+    });
+}
+
+export function register({ email, password }) {
+  return fakeFetch(
+    [{ message: "account created" }],
+    [{ message: "Email already in use" }]
   )
     .then((data) => {
       return data;
