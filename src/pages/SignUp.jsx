@@ -39,26 +39,35 @@ export default function Login() {
   }
 
   function isInvalidEmail(email) {
-    if (!email) return "Enter Email";
-    if (!email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i))
+    if (!email) {
+      return "Enter Email";
+    }
+    if (!email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i)) {
       return "Invalid Email";
+    }
     return false;
   }
 
   function isInvalidPassword(password) {
-    const minLength = 8
+    const minLength = 8;
     const excludeList = ["password", "123", "1234", "12345", "123456"];
     const specialCharacters = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
     const lowercase = password.toLowerCase();
-    if (!password) return "Enter Password";
-    if (password.length < minLength) return `Password must be at least ${minLength} characters`;
-    if (excludeList.some((a) => lowercase.includes(a)))
+    if (!password) {
+      return "Enter Password";
+    }
+    if (password.length < minLength) {
+      return `Password must be at least ${minLength} characters`;
+    }
+    if (excludeList.some((a) => lowercase.includes(a))) {
       return (
         "Password cannot contain " +
         excludeList.map((a) => '"' + a + '"').join(", ")
       );
-    if (!specialCharacters.split("").some((a) => lowercase.includes(a)))
+    }
+    if (!specialCharacters.split("").some((a) => lowercase.includes(a))) {
       return "Password must contain a special character";
+    }
     return false;
   }
 
@@ -78,7 +87,9 @@ export default function Login() {
       setConfirmPasswordError("Passwords Do Not Match");
       error = true;
     }
-    if (error) return;
+    if (error) {
+      return;
+    }
 
     setLoading(true);
     register({ email, password }).then((data) => {
