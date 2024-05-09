@@ -10,8 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.2.10",
-    "framer-motion": "^11.0.23",
+    "@nextui-org/react": "^2.3.6",
+    "@nextui-org/link": "2.0.22",
+    "framer-motion": "^11.1.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3"
