@@ -1,13 +1,13 @@
 import { useState } from "react";
 import {
   Button,
-  Link,
   Navbar,
   NavbarContent,
   NavbarItem,
   NavbarMenu,
   NavbarMenuToggle,
 } from "@nextui-org/react";
+import { Link } from "@nextui-org/link";
 import { useLocation } from "react-router-dom";
 
 export default function NavbarComponent() {
