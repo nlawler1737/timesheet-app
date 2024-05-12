@@ -17,7 +17,7 @@ import ChevronDownIcon from "../assets/ChevronDownIcon";
 import { today, Time, now, parseDuration } from "@internationalized/date";
 import { getProjects } from "../utils/entriesHandler";
 
-export default function EntryForm() {
+export default function EntryForm({ onEntryAdd }) {
   const initialTime = getCurrentDateTime();
   const [selectedKeys, setSelectedKeys] = useState(new Set([]));
   const [date, setDate] = useState(today());
@@ -132,7 +132,7 @@ export default function EntryForm() {
   }
 
   return (
-    <div className="w-full bg-container rounded-lg py-3 px-4 flex gap-x-2 gap-y-3 flex-wrap lg:flex-nowrap items-center justify-center">
+    <div className="w-full flex gap-x-2 gap-y-3 flex-wrap lg:flex-nowrap items-center justify-center">
       <div className="flex gap-x-2 items-center grow">
         <Input
           type="text"

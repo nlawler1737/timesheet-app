@@ -1,8 +1,8 @@
 import { fakeFetch, mockData } from "./mock";
 
 /**
- * @typedef {{name: string, id: number}} Project
- * @typedef {{start: string, end: string, project: string, summary: string}} Entry
+ * @typedef {{id: number, name: string}} Project * 
+ * @typedef {{id: string, start: string, end: string, project: string, summary: string}} Entry
  */
 
 /**
