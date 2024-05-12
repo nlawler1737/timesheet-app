@@ -45,7 +45,7 @@ export default function Login() {
     setLoading(true);
     login({ email, password }).then((data) => {
       setLoading(false);
-      if (!data.success) {
+      if (!data.statusCode === 200) {
         setLoginStatus({ success: false, message: data.message });
         return;
       }
@@ -101,7 +101,7 @@ export default function Login() {
       <LoadingButton
         loading={loading}
         text="Login"
-        onClick={handleLoginClick}
+        onPress={handleLoginClick}
       ></LoadingButton>
       <div className="w-full text-center">
         <Link href="/signup">Don't Have An Account?</Link>
