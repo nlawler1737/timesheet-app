@@ -151,19 +151,28 @@ export default function EntryItem({ entry }) {
         <DatePickerCompact className="min-w-10 aspect-square" />
       </div>
       <div className="flex items-center gap-2">
-        <Input variant="underlined" defaultValue={totalTimeString} />
+        <Input
+          variant="underlined"
+          size="sm"
+          className="min-w-20 max-w-20"
+          classNames={{ input: "text-lg text-center" }}
+          defaultValue={totalTimeString}
+        />
         <Dropdown>
           <DropdownTrigger>
             <Button
               variant="light"
               color="default"
-              className="min-w-5 aspect-square p-2"
+              size="sm"
+              className="min-w-5 aspect-square p-1"
             >
               <ThreeDotsVerticalIcon />
             </Button>
           </DropdownTrigger>
           <DropdownMenu aria-label="Select Action">
-            <DropdownItem key="delete" color="danger" className="text-danger ">Delete</DropdownItem>
+            <DropdownItem key="delete" color="danger" className="text-danger ">
+              Delete
+            </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </div>

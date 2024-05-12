@@ -22,22 +22,6 @@ export default function EntryWeek({ className }) {
         >
           <EntryDay />
         </AccordionItem>
-        <AccordionItem
-          key="2"
-          aria-label="Accordion 2"
-          title={<Title title={"Accordion 2"} showLine={!expanded.has("2")} />}
-          hideIndicator={true}
-        >
-          {"test"}
-        </AccordionItem>
-        <AccordionItem
-          key="3"
-          aria-label="Accordion 3"
-          title={<Title title={"Accordion 3"} showLine={!expanded.has("3")} />}
-          hideIndicator={true}
-        >
-          {"test"}
-        </AccordionItem>
       </Accordion>
     </div>
   );

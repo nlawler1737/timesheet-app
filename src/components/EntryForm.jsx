@@ -1,4 +1,3 @@
-import "./EntryForm.css";
 import {
   Button,
   Dropdown,
@@ -266,8 +265,8 @@ export default function EntryForm({ onEntryAdd }) {
       <div className="min-w-20 max-w-20">
         <Input
           variant="underlined"
-          fullWidth
           className="entry-form--total-time"
+          classNames={{ input: "text-lg text-center" }}
           size="sm"
           defaultValue={"00:00:00"}
           value={entryDuration}

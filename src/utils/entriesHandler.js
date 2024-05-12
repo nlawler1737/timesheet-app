@@ -1,7 +1,7 @@
 import { fakeFetch, mockData } from "./mock";
 
 /**
- * @typedef {{id: number, name: string}} Project * 
+ * @typedef {{id: number, name: string}} Project
  * @typedef {{id: string, start: string, end: string, project: string, summary: string}} Entry
  */
 
@@ -29,7 +29,6 @@ export function getEntries() {
 export function getProjects() {
   return fakeFetch([
     { message: "successfully fetched projects", data: mockData.projects },
-    { message: "successfully fetched projects", data: [] },
   ])
     .then((data) => {
       return data;
