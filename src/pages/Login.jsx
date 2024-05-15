@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardBody, Input } from "@nextui-org/react";
 import { Link } from "@nextui-org/link";
+import { StatusCodes } from "http-status-codes"
 import InputForm from "../components/InputForm";
 import PasswordEye from "../components/PasswordEye";
 import LoadingButton from "../components/LoadingButton";
@@ -46,7 +47,7 @@ export default function Login() {
     setLoading(true);
     login({ email, password }).then((data) => {
       setLoading(false);
-      if (!data.success) {
+      if (!data.statusCode === StatusCodes.OK) {
         setLoginStatus({ success: false, message: data.message });
         return;
       }
@@ -102,7 +103,7 @@ export default function Login() {
       <LoadingButton
         loading={loading}
         text="Login"
-        onClick={handleLoginClick}
+        onPress={handleLoginClick}
       ></LoadingButton>
       <div className="w-full text-center">
         <Link href="/signup">Don't Have An Account?</Link>

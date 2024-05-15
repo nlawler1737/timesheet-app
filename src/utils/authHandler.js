@@ -1,4 +1,7 @@
+import { StatusCodes } from "http-status-codes";
 import { fakeFetch } from "./mock";
+
+const url = import.meta.env.VITE_SERVER_ORIGIN;
 
 /**
  * Logs in a user, saves token in local storage
@@ -6,18 +9,19 @@ import { fakeFetch } from "./mock";
  * @returns {Promise<{success: boolean, message: string}>}
  */
 export function login({ email, password }) {
-  return fakeFetch(
-    [{ message: "user logged in" }],
-    [
-      { message: "Email or password are incorrect" },
-      { message: "No account with this email was found" },
-    ]
-  )
-    .then((data) => {
-      return data;
-    })
-    .catch((error) => {
-      return { success: false, message: error };
+  return fetch(url + "/api/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  })
+    .then((res) => res.json())
+    .then((json) => {
+      if (json.statusCode === StatusCodes.OK && json.token) {
+        localStorage.setItem("time_tracker:token", json.token);
+      }
+      return json;
     });
 }
 
