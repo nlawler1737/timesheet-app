@@ -1,3 +1,5 @@
+import { StatusCodes } from "http-status-codes";
+
 const url = import.meta.env.VITE_SERVER_ORIGIN;
 
 export function login({ email, password }) {
@@ -10,7 +12,7 @@ export function login({ email, password }) {
   })
     .then((res) => res.json())
     .then((json) => {
-      if (json.statusCode === 200 && json.token) {
+      if (json.statusCode === StatusCodes.OK && json.token) {
         localStorage.setItem("time_tracker:token", json.token);
       }
       return json;

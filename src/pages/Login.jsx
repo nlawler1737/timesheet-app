@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardBody, Input, Link } from "@nextui-org/react";
+import { StatusCodes } from "http-status-codes"
 import InputForm from "../components/InputForm";
 import PasswordEye from "../components/PasswordEye";
 import LoadingButton from "../components/LoadingButton";
@@ -45,7 +46,7 @@ export default function Login() {
     setLoading(true);
     login({ email, password }).then((data) => {
       setLoading(false);
-      if (!data.statusCode === 200) {
+      if (!data.statusCode === StatusCodes.OK) {
         setLoginStatus({ success: false, message: data.message });
         return;
       }
