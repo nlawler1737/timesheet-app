@@ -226,12 +226,13 @@ export default function EntryForm({ onEntryAdd }) {
               endDateTime.hour = time.hour;
               endDateTime.minute = time.minute;
               const difference = endDateTime.compare(startDateTime);
-              if (difference < 0) {
+
+              const isBeforeStart = difference < 0;
+              const isBetween24And48Hours = difference >= 24 * 60 * 60 * 1000 && difference < 48 * 60 * 60 * 1000;
+
+              if (isBeforeStart) {
                 endDateTime.day = startDateTime.day + 1;
-              } else if (
-                difference >= 24 * 60 * 60 * 1000 &&
-                difference < 48 * 60 * 60 * 1000
-              ) {
+              } else if (isBetween24And48Hours) {
                 endDateTime.day = startDateTime.day;
               }
               setEndDateTime(endDateTime.copy());
