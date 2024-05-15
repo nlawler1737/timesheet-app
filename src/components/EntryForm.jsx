@@ -230,9 +230,12 @@ export default function EntryForm({ onEntryAdd }) {
               const isBeforeStart = difference < 0;
               const isBetween24And48Hours = difference >= 24 * 60 * 60 * 1000 && difference < 48 * 60 * 60 * 1000;
 
+              // Adjust end time depending on time difference
               if (isBeforeStart) {
+                // If time difference is before start time, set end time to day after start time
                 endDateTime.day = startDateTime.day + 1;
               } else if (isBetween24And48Hours) {
+                // If time difference is between 24 and 48 hours, return / keep end time same as start time
                 endDateTime.day = startDateTime.day;
               }
               setEndDateTime(endDateTime.copy());
