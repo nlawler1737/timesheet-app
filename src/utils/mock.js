@@ -4,24 +4,29 @@
 export const mockData = {
   projects: [
     {
-      name: "project_1",
       id: 1,
+      name: "project_1",
+      totalTime: "10:00:00",
     },
     {
-      name: "project_2",
       id: 2,
+      name: "project_2",
+      totalTime: "24:00:00",
     },
     {
-      name: "project_3",
       id: 3,
+      name: "project_3",
+      totalTime: "30:23:00",
     },
     {
-      name: "project_4",
       id: 4,
+      name: "project_4",
+      totalTime: "40:03:00",
     },
     {
-      name: "project_5",
       id: 5,
+      name: "project_5",
+      totalTime: "30:56:00",
     },
   ],
   entries: [

@@ -43,11 +43,26 @@ export function getProjects() {
  * @param {Entry} entry
  * @returns {Promise<{success: boolean, message: string}>}
  */
-export function addEntry(entry) {
+export function createEntry(entry) {
   return fakeFetch([
     { message: "successfully added entry" },
     { message: "successfully added entry" },
   ])
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      return { success: false, message: error };
+    });
+}
+
+/**
+ * Sends new project to server for creation
+ * @param {{name: string}} project
+ * @returns {Promise<{success: boolean, message: string}>}
+ */
+export function createProject(project) {
+  return fakeFetch([{ message: "successfully created project" }])
     .then((data) => {
       return data;
     })
