@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import InputForm from "../components/InputForm";
-import { Card, CardBody, Input, Link } from "@nextui-org/react";
+import { Card, CardBody, Input } from "@nextui-org/react";
+import { Link } from "@nextui-org/link";
 import LoadingButton from "../components/LoadingButton";
 import { requestPasswordChange } from "../utils/authHandler";
 

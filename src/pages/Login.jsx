@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Card, CardBody, Input, Link } from "@nextui-org/react";
+import { Card, CardBody, Input } from "@nextui-org/react";
+import { Link } from "@nextui-org/link";
 import { StatusCodes } from "http-status-codes"
 import InputForm from "../components/InputForm";
 import PasswordEye from "../components/PasswordEye";

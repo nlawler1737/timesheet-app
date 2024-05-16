@@ -17,6 +17,9 @@ export default {
         dark: {
           colors: {
             primary: "#464DEB",
+            card: "#19181D",
+            entry: "#27252D",
+            container: "#201E26",
             // danger: "red"
           },
         },

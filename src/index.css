@@ -5,7 +5,7 @@
 :root {
   font-family: "Baloo 2", system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
-  background-color: #131313;
+  background-color: #0D0D0D;
   color: white;
   --nav-bar-height: 64px;
 }

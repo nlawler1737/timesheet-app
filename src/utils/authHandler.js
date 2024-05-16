@@ -1,7 +1,13 @@
 import { StatusCodes } from "http-status-codes";
+import { fakeFetch } from "./mock";
 
 const url = import.meta.env.VITE_SERVER_ORIGIN;
 
+/**
+ * Logs in a user, saves token in local storage
+ * @param {{email: string, password: string}} param0
+ * @returns {Promise<{success: boolean, message: string}>}
+ */
 export function login({ email, password }) {
   return fetch(url + "/api/auth/login", {
     method: "POST",
@@ -19,6 +25,11 @@ export function login({ email, password }) {
     });
 }
 
+/**
+ * Registers a new user, saves token in local storage
+ * @param {{email: string, password: string}} param0
+ * @returns {Promise<{success: boolean, message: string}>}
+ */
 export function register({ email, password }) {
   return fakeFetch(
     [{ message: "account created" }],
@@ -32,6 +43,11 @@ export function register({ email, password }) {
     });
 }
 
+/**
+ * Requests a password change
+ * @param {{email: string}} param0
+ * @returns {Promise<{success: boolean, message: string}>}
+ */
 export function requestPasswordChange({ email }) {
   return fakeFetch(
     [{ message: "email has been sent" }],
@@ -43,22 +59,4 @@ export function requestPasswordChange({ email }) {
     .catch((error) => {
       return { success: false, message: error };
     });
-}
-
-function fakeFetch(pass, fail) {
-  return new Promise((resolve, reject) => {
-    setInterval(() => {
-      if (Math.random() >= 0.5) {
-        resolve({
-          success: true,
-          ...pass[Math.floor(Math.random() * pass.length)],
-        });
-      } else {
-        resolve({
-          success: false,
-          ...fail[Math.floor(Math.random() * fail.length)],
-        });
-      }
-    }, Math.floor(Math.random() * 1000) + 1);
-  });
 }
