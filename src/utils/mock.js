@@ -1,5 +1,5 @@
 /**
- * @type {{projects: Project[], entries: Entry[]}}
+ * @type {{projects: Project[], entries: Entry[], users: User[]}}
  */
 export const mockData = {
   projects: [
@@ -59,6 +59,18 @@ export const mockData = {
       summary: "Summary 4",
     },
   ],
+  users: [
+    {
+      id: 1,
+      name: "user_1",
+      email: "user_1@example.com",
+    },
+    {
+      id: 2,
+      name: "user_2",
+      email: "user_2@example.com",
+    }
+  ]
 };
 
 /**
